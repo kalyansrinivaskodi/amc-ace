@@ -1,0 +1,449 @@
+body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .center-page{
+      margin: 0 auto;
+      max-width:978px;
+    }
+    .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    }
+    a{
+      text-decoration: none;
+    }
+    .headers{
+      background-color:#004b66;
+    }
+    /*.logo{
+      width: 30%;
+      float: left;
+    }*/
+    .logo a{
+    color: #fff;
+    font-size: 25px;
+    padding: 10px 0px 10px 37px;
+    }
+    .banner-wrap img{
+     width: 100%;
+    }
+    
+    .lists {
+        padding-left: 10%;
+    }
+    
+    .lists  a{
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    float: left;
+    text-decoration: none;
+    padding: 10px;
+}
+ .lists a:hover { 
+    background-color:#426572;
+}
+/*.container-page .register .status .login{
+  width: 33%;
+}*/
+.banner-wrap{
+background: url(../images/computer2.jpeg) no-repeat center center;
+margin-top: 0px;
+padding-top: 60px;
+text-align: center;
+background-attachment: relative;
+background-position: center center;
+min-height: 480px;
+width: 100%;
+-webkit-background-size: 100%;
+-moz-background-size: 100%;
+-o-background-size: 100%;
+background-size: 100%;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+/* background-size: cover; */
+}
+.container-wrap{
+  padding-top: 15px;
+}
+.register img{
+    width: 35%;
+    /* height: 28%; */
+    padding: 15px 10px;
+    margin: 0 auto;
+    display: table;
+}
+.text1 h4{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #004b66;
+}
+.text1 p{
+    color: #777;
+    text-align: center;
+    line-height: 1.5em;
+}
+ .sidebar-list-wrap{
+      width: 30%;
+      background-color: #004b66;
+
+    }
+    .sidebar-list-wrap  a{
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid 
+}
+.sidebar-list-wrap a:hover { 
+    border-bottom:3px solid #ffbf80;
+}
+.contact-wrap{
+
+}
+
+
+.display-table{
+  width: 70%;
+  margin:0 auto;
+}
+/* for services images */
+.service-page  .service-info{
+      font-size: 20px;
+    text-align: center;
+    color: #004b66;
+    text-transform: uppercase;
+    margin: 10px 0px;
+    font-weight: bold;
+    margin-top: 33px;
+      }
+      .image1{
+        width: 33%;
+        display: block;
+        float: left;
+      }
+      .image1 img{
+        max-width: 300px;
+        margin: 10px 0px;
+        height: 200px;
+      }
+     
+     .title-text{
+      text-align: center;
+    padding: 0px;
+    color: #fff;
+    background-color: #004b66;
+    margin-top: -15px;
+    margin-left: 0px;
+    margin-right: 22px;
+    font-size: 18px;
+    padding: 5px 0px;
+    /* width: 96%;*/
+     }
+     .contact-page {
+      margin-top: 25px;
+      font-size:16px;
+      color:#000;
+     }
+     .tel{
+      margin: 0 auto;
+    display: table;
+    padding: 7px 0px;
+     }
+     .contact-page img {
+      width: 35px;
+    height: 35px;
+     }
+     .contact-page h4{
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    padding: 46px 0 0 0;
+    color: #004b66;
+    padding: 5px 0px;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+     .contact-page span{
+      text-align:center;
+      color: #000;
+      padding: 5px;
+      font-weight: bold;
+      font-size:16px;
+     }
+     
+
+
+/*.image1{
+        width: 32%;
+        display: block;
+        float: left;
+      }
+      .image1 img{
+        max-width: 300px;
+        margin: 10px 0px;
+        height: 200px;
+      }
+ .wrapper-title-seo {
+    bottom: 0;
+    left: 15px;
+    position: absolute;
+    right: 15px;
+    top: 0;
+}
+  .wrapper-title-seo-inner {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+ .wrapper-title-seo-inner .title-seo {
+    color: #fff;
+    display: table-cell;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+    text-align: center;
+    text-shadow: 0 1px 8px #666;
+    text-shadow: 0 1px 8px rgba(0,0,0,.5);
+    width: 100%;
+}*/
+.footer-wrap{
+  background-color: #004b66;
+  margin-top: 30px;
+}
+.footer-page{
+  color: #e5e5e5;
+
+  
+}
+.bottom {
+    font-size: 10px;
+    margin-top: 20px;
+    text-align: center;
+    padding: 5px;
+}
+.bottom a{
+  text-decoration: none;
+  color: #e5e5e5;
+  padding: 10px;
+}
+.footer-page span{
+  margin: 0 auto;
+  display: table;
+}
+/* check status page  */
+.status-page h4{
+        text-align: center;
+    text-transform: uppercase;
+    color: #b30000;
+    margin-top: 25px;
+  }
+  .status-form{
+    width: 50%;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    padding: 25px;
+  }
+  .status-form p{
+    text-align: center;
+    font-size: 17px;
+    color: #000;
+  }
+   .status-form input{
+    width: 100%;
+    padding:10px;
+    margin: 5px 0px;
+   }
+   .status-btn{
+    border:none;
+    background:#3498DB;
+    color: #fff;
+    font-size:16px;
+   }
+/*- after login-*/
+.pending, .completed {
+    text-decoration: none;
+    display: block;
+    color: black;
+    font-size: 18px;
+    background-color: #f2f2f2;
+    width: 28%;
+    padding: 5px;
+    /* float: left; */
+    color: cadetblue;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+  .pending:hover {
+    background-color: yellow;
+  }
+  
+
+
+  a:link {
+    text-decoration: none;
+
+}
+.log-name{
+  margin-top: -82px;
+    margin-right: 20px;
+}
+.logged-name{
+  text-decoration: none;
+  font-size:17px;
+  color:#000;
+  float: right;
+
+}
+/*--log ot page--*/
+
+.logout-btn{
+    width: 9%;
+    float: right;
+    margin: 10px;
+    }
+.logout-btn a{
+        text-decoration: none;
+        color: #fff;
+        font-size:18px;
+      }
+/*----login-page---*/
+.login-page-body {
+font-family: Arial;
+background-color: #e6e6e6;
+padding: 50px;
+}
+.login {
+margin: 20px auto;
+width: 300px;
+}
+.login-screen {
+background-color: #FFF;
+padding: 20px;
+border-radius: 5px
+}
+
+.app-title {
+text-align: center;
+color: #777;
+}
+
+.login-form {
+text-align: center;
+}
+.control-group {
+margin-bottom: 10px;
+}
+
+input {
+text-align: center;
+background-color: #ECF0F1;
+border: 2px solid transparent;
+border-radius: 3px;
+font-size: 16px;
+font-weight: 200;
+padding: 10px 0;
+width: 250px;
+transition: border .5s;
+}
+
+input:focus {
+border: 2px solid #3498DB;
+box-shadow: none;
+}
+
+.btn {
+      border: 2px solid transparent;
+    background: #3498DB;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 5px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 80px;
+    margin: 0 auto;
+}
+
+.btn:hover {
+  background-color: #2980B9;
+  transform:scale(1.2);
+}
+
+.login-link {
+  font-size: 12px;
+  color: #444;
+  display: block;
+  margin-top: 12px;
+}
+/*---for amc engineers status entry form---*/
+
+h2.display-page{
+      text-align: center;
+    }
+/*--pending/completed page--*/
+h4.display-page{
+        text-align: center;
+        text-transform: uppercase;
+        color:#b30000;
+      }
+      .logout-btn{
+        float: right;
+        /*margin: 10px;*/
+      }
+      .logout-btn a{
+        text-decoration: none;
+        color: #fff;
+        font-size:18px;
+      }
+      .user-name{
+        float: right;
+          padding-right: 15px;
+      }
+       .tab-info {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    /*--register sucees---*/
+    .register_success{
+    margin: 0 auto;
+    display: table;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.5em;
+    }
+    /* check status page--*/
+    #complaint-id{
+      border: 2px solid grey;
+    }
+    #register-btn{
+      width:100%;
+    }
+    td:hover{
+      -ms-transform: scale(1.5); /* IE 9 */
+      -webkit-transform: scale(1.5); /* Safari 3-8 */
+      transform: scale(1.2); 
+      background-color: grey;
+      color:black;
+      border-radius: 25px;
+     
+    }
+	
