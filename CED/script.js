@@ -95,3 +95,18 @@ window.onclick = function(event) {
         closeModal(); // Close the modal
     }
 };
+
+
+function toggleDivisionQuarterField() {
+    var divisionOrQuarter = document.querySelector('input[name="division_or_quarter"]:checked').value;
+    var divisionField = document.getElementById("divisionField");
+    var quarterField = document.getElementById("quarterField");
+
+    if (divisionOrQuarter === "division") {
+        divisionField.style.display = "block";
+        quarterField.style.display = "none";
+    } else if (divisionOrQuarter === "quarter") {
+        divisionField.style.display = "none";
+        quarterField.style.display = "block";
+    }
+}
