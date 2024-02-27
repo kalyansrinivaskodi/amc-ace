@@ -67,9 +67,10 @@ if (isset($_GET['status'])) {
                 <tr>
                     <th>Complaint id</th>                
                     <th>Complaint Name</th>
-                    <th>Internal No</th>
                     <th>Designation</th>
-                    <th>Department</th>
+                    <th>Department</th>                    
+                    <th>(Place of complaint)division or quarter no</th>
+                    <th>Internal No</th>
                     <th>Phone No</th>
                     <th>Email ID</th>
                     <th>Description</th>                
@@ -81,10 +82,11 @@ if (isset($_GET['status'])) {
                 <?php foreach ($issues as $issue): ?>
                     <tr>
                         <td><?php echo $issue['id']; ?></td>
-                        <td><?php echo $issue['name']; ?></td>
-                        <td><?php echo $issue['internalno']; ?></td>                    
+                        <td><?php echo $issue['name']; ?></td>                    
                         <td><?php echo $issue['designation']; ?></td>
-                        <td><?php echo $issue['department']; ?></td>                        
+                        <td><?php echo $issue['department']; ?></td>  
+                        <td><?php echo $issue['department_or_qtr_no']; ?></td>  
+                        <td><?php echo $issue['internalno']; ?></td>                      
                         <td><?php echo $issue['phone']; ?></td>
                         <td><?php echo $issue['email']; ?></td>
                         <td><?php echo $issue['description']; ?></td>

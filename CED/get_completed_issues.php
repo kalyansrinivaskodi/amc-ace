@@ -71,16 +71,17 @@ if (isset($_GET['status'])) {
 <body>
 
 <div class="issues-container">
+    <center>
     <h2><?php echo ucfirst($status); ?> Issues</h2>
-    <center><table>
+    <table>
         <thead>
             <tr>
                 <th>Complaint id</th>
                 
                 <th>Complaint Name</th>
-                <th>Internal No</th>
                 <th>Designation</th>
                 <th>Department</th>
+                <th>Internal No</th>
                 <th>Email ID</th>
                 <th>description</th>
                 <th>Remarks by CED</th>
@@ -92,10 +93,10 @@ if (isset($_GET['status'])) {
             <?php foreach ($issues as $issue): ?>
                 <tr>
                     <td><?php echo $issue['id']; ?></td>
-                    <td><?php echo $issue['name']; ?></td>
-                    <td><?php echo $issue['internalno']; ?></td>                    
+                    <td><?php echo $issue['name']; ?></td>                  
                     <td><?php echo $issue['designation']; ?></td>
                     <td><?php echo $issue['department']; ?></td>
+                    <td><?php echo $issue['internalno']; ?></td>  
                     <td><?php echo $issue['email']; ?></td>
                     <td><?php echo $issue['description']; ?></td>
                     <td><?php echo $issue['remarks']; ?></td>
