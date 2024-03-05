@@ -1,16 +1,17 @@
 <?php include 'header.php' ?>
 <?php
-session_start();
-
 // Check if the user is logged in
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["cedusername"])) {
     // If not logged in, redirect to the login page
     header("Location: login.php");
     exit();
 }
 
 // Get the username from the session
-$username = $_SESSION["username"];
+$username = $_SESSION["cedusername"];
+
+$userPriority = $_SESSION["priority"]; // Assuming priority is stored in session
+
 
 // Function to fetch issues from the database based on status
 function getIssuesByStatus($username, $status) {
@@ -69,6 +70,12 @@ $completedIssues = getIssuesByStatus($username, 'Completed');
     
     
     <button class="button" onclick="location.href='get_completed_issues.php?status=Completed';">Get Completed Issues</button>
+    
+
+    
+    <?php if($userPriority == 5) { ?>
+        <button class="button" onclick="location.href='newuserform.php';">Add User</button>
+    <?php } ?>
     
     <!-- Add more content here for the dashboard -->
 </div>

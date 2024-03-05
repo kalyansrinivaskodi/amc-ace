@@ -20,7 +20,7 @@
    
 <nav>
     <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="http://localhost:82/amc-ace">Home</a></li>
         <li>
             <a href="#">Register</a>
             <ul class="submenu">

@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration Form</title>
-</head>
-<body>
-    <h2>User Registration Form</h2>
+<?php include 'header.php' ?>
+<!-- Your page content goes here -->
+
+<?php
+   $servername = "localhost";
+   $username = "root";
+   $password = "2502";
+   $db="amcdb";
+   $con = mysqli_connect($servername, $username, $password,$db);
+?>  
+
+<center><h2>User Registration Form</h2>
+</center>
     <form action="insert_user.php" method="post">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
@@ -22,11 +26,14 @@
 
         <label for="priority">Priority:</label><br>
         <input type="number" id="priority" name="priority" min="1" max="10"><br><br>
-
         <label for="typeofservice">Type of Service:</label><br>
-        <input type="text" id="typeofservice" name="typeofservice"><br><br>
+        <select id="typeofservice" name="typeofservice">
+            <option value="IT">IT</option>
+            <option value="CED">CED</option>
+            <option value="EMD">EMD</option>
+        </select><br><br>
 
         <input type="submit" value="Submit">
     </form>
-</body>
-</html>
+
+    <?php include 'footer.php' ?>

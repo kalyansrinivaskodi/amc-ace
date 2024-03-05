@@ -38,6 +38,13 @@ textarea {
     border-radius: 6px;
     box-sizing: border-box;
 }
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+  }
 
 input[type="submit"] {
     background-color: #007bff;
@@ -53,7 +60,15 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
-
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    width: 100px; /* Adjust width as needed */
+    box-sizing: border-box; /* Ensure padding and border included in width */
+  }
 /* Responsive Styling */
 @media (max-width: 600px) {
     form {

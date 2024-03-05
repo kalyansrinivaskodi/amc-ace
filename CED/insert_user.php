@@ -1,12 +1,15 @@
 <?php
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+session_start();
+
+// Check if the form is submitted and if it has already been submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_SESSION['form_submitted'])) {
+    // Set session variable to indicate form submission
+    $_SESSION['form_submitted'] = true;
+
     // Connect to the database
-
-
     $servername = "localhost";
     $username = "root"; // Replace with your database username
-    $password = ""; // Replace with your database password
+    $password = "2502"; // Replace with your database password
     $dbname = "amcdb"; // Replace with your database name
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -30,10 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $typeofservice = $_POST["typeofservice"];
     $stmt->execute();
 
-    echo "New record inserted successfully-EMD";
-
     // Close statement and database connection
     $stmt->close();
     $conn->close();
+
+    // Redirect to a success page to prevent form resubmission
+    header("Location: success.php");
+    exit();
 }
+
+// Clear the session variable after the form is submitted
+unset($_SESSION['form_submitted']);
 ?>

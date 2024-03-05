@@ -32,7 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user["password"])) {
             // Password is correct, login successful
             session_start();
-            $_SESSION["username"] = $username;
+            $_SESSION["cedusername"] = $username;
+            
+            $_SESSION["priority"] = $user["priority"];
             header("Location: dashboard.php"); // Redirect to dashboard or another page
             exit();
         } else {
