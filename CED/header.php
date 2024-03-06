@@ -32,7 +32,7 @@
                 session_start(); // Starting the session
                 if(isset($_SESSION["itusername"])) { ?>
                     <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="logout.php">Logout (<?php echo $_SESSION["username"]; ?>)</a></li>
+                    <li><a href="logout.php">Logout (<?php echo $_SESSION["itusername"]; ?>)</a></li>
                 <?php } else { ?>
                     <li><a href="/amc-ace/ced/login.php">Login</a></li>
                 <?php } ?>
@@ -46,7 +46,7 @@
                 <?php 
                 if(isset($_SESSION["cedusername"])) { ?>
                     <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="logout.php">Logout (<?php echo $_SESSION["username"]; ?>)</a></li>
+                    <li><a href="logout.php">Logout (<?php echo $_SESSION["cedusername"]; ?>)</a></li>
                 <?php } else { ?>
                     <li><a href="/amc-ace/ced/login.php">Login</a></li>
                 <?php } ?>
@@ -60,7 +60,7 @@
                 <?php 
                 if(isset($_SESSION["emdusername"])) { ?>
                     <li><a href="dashboard.php">Dashboard</a></li>
-                    <li><a href="logout.php">Logout (<?php echo $_SESSION["username"]; ?>)</a></li>
+                    <li><a href="logout.php">Logout (<?php echo $_SESSION["emdusername"]; ?>)</a></li>
                 <?php } else { ?>
                     <li><a href="/amc-ace/emd/login.php">Login</a></li>
                 <?php } ?>

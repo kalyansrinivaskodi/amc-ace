@@ -29,7 +29,7 @@
         <label for="typeofservice">Type of Service:</label><br>
         <select id="typeofservice" name="typeofservice">
             <option value="IT">IT</option>
-            <option value="CED">CED</option>
+            <option value="CED" selected>CED</option> <!-- Add selected and disabled attributes to freeze -->
             <option value="EMD">EMD</option>
         </select><br><br>
 

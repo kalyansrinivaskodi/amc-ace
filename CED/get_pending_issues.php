@@ -2,17 +2,16 @@
 
 <?php include 'modal.php'; ?>
 <?php
-session_start();
 
 // Check if the user is logged in
-if (!isset($_SESSION["username"])) {
+if (!isset($_SESSION["cedusername"])) {
     // If not logged in, redirect to the login page
     header("Location: login.php");
     exit();
 }
 
 // Get the username from the session
-$username = $_SESSION["username"];
+$username = $_SESSION["cedusername"];
 
 // Check if the status parameter is set in the URL
 if (isset($_GET['status'])) {
