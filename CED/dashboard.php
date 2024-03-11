@@ -77,6 +77,10 @@ $completedIssues = getIssuesByStatus($username, 'Completed');
         <button class="button" onclick="location.href='newuserform.php';">Add User</button>
     <?php } ?>
     
+    
+    <!-- Button for printing data -->
+    <button class="button" onclick="location.href='print_data.php';">Print Data</button>
+
     <!-- Add more content here for the dashboard -->
 </div>
 

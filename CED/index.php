@@ -12,7 +12,7 @@
     <h2>Complaint Form</h2>
     <label for="name">Name of the Complainant:</label>
     <input type="text" id="name" name="name" required>
-
+    
     <label for="designation">Designation:</label>
     <input type="text" id="designation" name="designation" required>
 

@@ -9,7 +9,7 @@ if (!isset($_SESSION["cedusername"])) {
 }
 
 // Get the username from the session
-$username = $_SESSION["username"];
+$username = $_SESSION["cedusername"];
 
 // Check if the status parameter is set in the URL
 if (isset($_GET['status'])) {

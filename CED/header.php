@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMC-ACE</title>
     <link rel="stylesheet" href="css/styles.css">
-    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-glyph.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
     <link rel="stylesheet" href="css/cedstyles.css">
     
     
@@ -15,7 +18,7 @@
 <body>
 
     <header>
-        <h1>Central Power Research Institute - AMC Portal for IT Complaints, CED Complaints, EMD Complaints</h1>
+        <h1>Central Power Research Institute - AMC Portal for IT, CED, EMD</h1>
     </header>
 
   
@@ -69,5 +72,7 @@
     </ul>
 
 </nav>
+
+<script src="js/headerscript.js"></script>
 </body>
 </html>

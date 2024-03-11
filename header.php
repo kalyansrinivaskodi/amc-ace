@@ -46,7 +46,7 @@
                 <li><a href="/amc-ace/ced/cedcomplaintstatus.php">Complaint Status</a></li>
                 <?php 
                 if(isset($_SESSION["cedusername"])) { ?>
-                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="http://localhost:82/amc-ace/ced/dashboard.php">Dashboard</a></li>
                     <li><a href="logout.php">Logout (<?php echo $_SESSION["cedusername"]; ?>)</a></li>
                 <?php } else { ?>
                     <li><a href="/amc-ace/ced/login.php">Login</a></li>
@@ -70,5 +70,6 @@
     </ul>
 
 </nav>
+<script src="js/headerscript.js"></script>
 </body>
 </html>

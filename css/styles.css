@@ -36,7 +36,8 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #0056b3;
+    background-color: yellow;
+    color:black;
 }
 
 .submenu {
@@ -57,5 +58,38 @@ li:hover .submenu {
 }
 
 .submenu a:hover {
-    background-color: #0056b3;
+    background-color: yellow;
+    color:black;
+}
+
+/* Add this CSS to your existing styles or styles.css file */
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other content */
+    background-color: #007BFF;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow effect */
+    transition: top 0.3s; /* Add smooth transition */
+
+}
+
+.fixed-navbar ul {
+    padding: 0;
+}
+
+.fixed-navbar li {
+}
+
+.fixed-navbar a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.fixed-navbar a:hover {
+    background-color: yellow; /* Adjust hover background color */    
+    color:black;
 }

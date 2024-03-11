@@ -45,38 +45,38 @@
    <!--- featured support services-->
    <div class="service-wrap clearfix" id="services">
      <div class="service-page center-page">
-     <h4 class="service-info">AMC Support Services </h4>
-       <div class="image1" id="services">
+     <h4 class="service-info">IT AMC Support Services </h4>
+       <div class="image1 hvr" id="services">
          <img src="images/Desktop.jpeg">
          <span class="wrapper-title">
                 <h4 class="title-text">Desktop</h4>
               </span> 
        </div>
-       <div class="image1">
+       <div class="image1 hvr">
          <img src="images/laptop.jpeg">
              <span class="wrapper-title">
                 <h4 class="title-text">Laptop</h4>
               </span>                              
        </div>
-       <div class="image1">
+       <div class="image1 hvr">
          <img src="images/printer123.jpg">
          <span class="wrapper-title">
                 <h4 class="title-text">Printer</h4>
               </span> 
        </div>
-       <div class="image1">
+       <div class="image1 hvr">
          <img src="images/network.jpeg">
          <span class="wrapper-title">
                 <h4 class="title-text">Network</h4>
               </span> 
        </div>
-       <div class="image1">
+       <div class="image1 hvr">
          <img src="images/software123.jpg">
          <span class="wrapper-title">
                 <h4 class="title-text">Software</h4>
               </span> 
        </div>
-       <div class="image1">
+       <div class="image1 hvr">
          <img src="images/peripheral345.jpg">
          <span class="wrapper-title">
                 <h4 class="title-text">Peripherals</h4>
@@ -105,7 +105,7 @@ if (!$con) {
 
     <div class="contact-wrap clearfix" id="contact">
       <div class="contact-page center-page">
-        <h4>AMC Engineers Contact Details</h4> 
+        <h4>IT AMC Engineers Contact Details</h4> 
         <div class="tel">
           <img src="images/telephone.png">
         <span>Help Desk: 2531</span>  

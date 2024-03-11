@@ -60,7 +60,8 @@ if (isset($_GET['status'])) {
 
 <div class="issues-container">
     <center>
-        <h2><?php echo ucfirst($status); ?> Issues</h2>
+        <h2><?php echo ucfirst($status); ?> Issues<button class="button" onclick="window.print();">Print Data</button>
+    </h2>
         <table>
             <thead>
                 <tr>
@@ -99,6 +100,9 @@ if (isset($_GET['status'])) {
                 <?php endforeach; ?>
             </tbody>
         </table>
+        
+
+
     </center>
 </div>
 
