@@ -7,7 +7,7 @@ body {
 }
 
 form {
-    max-width: 80%; /* Adjust the maximum width */
+    max-width: 50%; /* Adjust the maximum width */
     margin: 20px auto;
     background-color: #ffffff;
     padding: 30px;

@@ -6,8 +6,9 @@
    $db="amcdb";
    $con = mysqli_connect($servername, $username, $password,$db);
 ?>
-<h2>Select Status and Department</h2>
-
+<center>
+<h2>Select the following selections:</h2>
+</center>
 <form action="print_results.php" method="POST">
     <label for="status">Status:</label>
     <select id="status" name="status">
@@ -26,7 +27,7 @@
 			?>
     </select><br><br>
     
-    <input type="submit" value="Print">
+    <input type="submit" value="Print" >
 </form>
 
 <?php include 'footer.php'; ?>

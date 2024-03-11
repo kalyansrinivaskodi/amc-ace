@@ -9,10 +9,10 @@
    $con = mysqli_connect($servername, $username, $password,$db);
 ?>
 <form action="submit_complaint.php" method="post">
-    <h2>Complaint Form</h2>
+    <center> <h2>CED Complaint Form</h2> </center>  
     <label for="name">Name of the Complainant:</label>
     <input type="text" id="name" name="name" required>
-    
+
     <label for="designation">Designation:</label>
     <input type="text" id="designation" name="designation" required>
 

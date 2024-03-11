@@ -108,6 +108,6 @@ if (isset($_GET['status'])) {
 
 <!-- Modal HTML structure -->
 
-<script src="script.js"></script>
+<script src="js/modalscript.js"></script>
 
 <?php include 'footer.php'; ?>

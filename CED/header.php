@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMC-ACE</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-glyph.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   
     <link rel="stylesheet" href="css/cedstyles.css">
     
@@ -31,8 +31,8 @@
             <ul class="submenu">
                 <li><a href="/amc-ace/amc">Register</a></li>
                 <li><a href="#">Complaint Status</a></li>
-                <?php 
-                session_start(); // Starting the session
+                <?php
+                session_start(); // Starting the session                 
                 if(isset($_SESSION["itusername"])) { ?>
                     <li><a href="dashboard.php">Dashboard</a></li>
                     <li><a href="logout.php">Logout (<?php echo $_SESSION["itusername"]; ?>)</a></li>
