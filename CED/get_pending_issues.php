@@ -1,8 +1,8 @@
 <?php include 'header.php'; ?>
 
 <?php include 'modal.php'; ?>
-<?php
 
+<?php
 // Check if the user is logged in
 if (!isset($_SESSION["cedusername"])) {
     // If not logged in, redirect to the login page
@@ -12,6 +12,8 @@ if (!isset($_SESSION["cedusername"])) {
 
 // Get the username from the session
 $username = $_SESSION["cedusername"];
+
+$userPriority = $_SESSION["priority"]; // Assuming priority is stored in session
 
 // Check if the status parameter is set in the URL
 if (isset($_GET['status'])) {
@@ -56,8 +58,42 @@ if (isset($_GET['status'])) {
     header("Location: dashboard.php");
     exit();
 }
-?>
 
+function getWorkers() {
+    // Connect to the database
+    $servername = "localhost";
+    $username_db = "root";
+    $password_db = "2502";
+    $dbname = "amcdb";
+    $conn = new mysqli($servername, $username_db, $password_db, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare SQL statement to fetch workers
+    $sql = "SELECT * FROM cedworkers";
+    $result = $conn->query($sql);
+
+    // Fetch workers into an array
+    $workers = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $workers[] = $row;
+        }
+    }
+
+    // Close connection
+    $conn->close();
+
+    return $workers;
+}
+
+// Get workers from the database
+$workers = getWorkers();
+
+?>
 <div class="issues-container">
     <center>
         <h2><?php echo ucfirst($status); ?> Issues<button class="button" onclick="window.print();">Print Data</button>
@@ -75,7 +111,11 @@ if (isset($_GET['status'])) {
                     <th>Email ID</th>
                     <th>Description</th>                
                     <th>Change Status</th>
-                    <!-- Add more columns as needed -->
+                    <?php if ($userPriority >= 2): ?>
+                        <th>Assign Worker</th> <!-- Added column for Assign Worker button -->
+                    <?php endif; ?>
+                    <th>Assigned To</th> <!-- Added column for Assigned To -->
+                    <th>Print</th> <!-- Added column for Print button -->
                 </tr>
             </thead>
             <tbody>
@@ -95,16 +135,24 @@ if (isset($_GET['status'])) {
                                 <button onclick="openModal(<?php echo $issue['id']; ?>,'<?php echo $issue['name']; ?>','<?php echo $issue['description']; ?>')">Change Status</button>
                             <?php endif; ?>
                         </td>
-                        <!-- Add more columns as needed -->
+                        <?php if ($userPriority >= 2): ?>
+                            <td>
+                                <?php if ($status === 'Pending'): ?>
+                                    <button onclick="assignWorker(<?php echo $issue['id']; ?>)">Assign to Worker</button>
+                                <?php endif; ?>
+                            </td>
+                        <?php endif; ?>
+                        <td><?php echo $issue['assigned_to']; ?></td> <!-- Display assigned_to data -->
+                        <td>
+                            <button onclick="printIssueDetails(<?php echo $issue['id']; ?>)">Print</button>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
-        
-
-
     </center>
 </div>
+
 
 <!-- Modal HTML structure -->
 

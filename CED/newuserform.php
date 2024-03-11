@@ -14,31 +14,23 @@
     exit();
     }
 
-
-   
     // Check if the session variable cedusername is set
     if(isset($_SESSION['cedusername'])) {
         // Fetch priority from the database based on the cedusername
         $cedusername = $_SESSION['cedusername'];
-        $query = "SELECT priority FROM ceduserdatabase WHERE name = '$cedusername'";
-        $result = mysqli_query($con, $query);
+        
+        $userPriority = $_SESSION["priority"]; // Assuming priority is stored in session    
 
-        // Check if the query executed successfully
-        if($result) {
-            // Fetch the priority value
-            $row = mysqli_fetch_assoc($result);
-            $priority = $row['priority'];
-        } else {
-            // Handle error if query execution fails
-            $priority = "Error fetching priority";
-        }
     } 
 
-
+    // Generate options for priority dropdown
+    $priorityOptions = "";
+    for ($i = $userPriority - 1; $i >= 1; $i--) {
+        $priorityOptions .= "<option value='$i'>$i</option>";
+    }
 ?>  
 
-<center><h2>User Registration Form</h2>
-</center>
+<center><h2>User Registration Form</h2></center>
     <form action="insert_user.php" method="post">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
@@ -53,7 +45,9 @@
         <input type="text" id="designation" name="designation"><br><br>
 
         <label for="priority">Priority:</label><br>
-        <input type="text" id="priority" name="priority" value="<?php echo $priority; ?>" readonly><br><br>
+        <select id="priority" name="priority">
+            <?php echo $priorityOptions; ?>
+        </select><br><br>
         
         <label for="typeofservice">Type of Service:</label><br>
         <select id="typeofservice" name="typeofservice">
@@ -65,4 +59,4 @@
         <input type="submit" value="Submit">
     </form>
 
-    <?php include 'footer.php' ?>
+<?php include 'footer.php' ?>

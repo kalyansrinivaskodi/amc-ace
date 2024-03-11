@@ -1,3 +1,24 @@
+<?php
+// Fetch workers from the database
+$servername = "localhost";
+$username = "root";
+$password = "2502";
+$dbname = "amcdb";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Query to fetch workers
+$sql = "SELECT * FROM cedworkers";
+$result = $conn->query($sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +49,35 @@
         <input type="textbox" id="remarksInput" placeholder="Material Used & details of the work..">
 
         <button id="confirmStatusChange">Change Status to Completed</button>
+    </div>
+</div>
+
+<div id="assignWorkerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Assign Worker</h2>
+        <form id="assignWorkerForm" action="assign_worker.php" method="post">
+            <input type="hidden" id="assignWorkerIssueId" name="issueId">
+            <label for="worker">Select Worker:</label>
+
+            <select id="worker" name="worker">
+                <option value="">Select Worker</option>
+                <?php
+                // Populate dropdown with workers fetched from database
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row["workername"] . "'>" . $row["workername"] . "</option>";
+                    }
+                } else {
+                    echo "<option value=''>No workers found</option>";
+                }
+                ?>
+            </select><br><br>
+                <!-- Populate with workers from database using PHP -->
+                <!-- Example: <option value="1">Worker 1</option> -->
+
+            <input type="submit" value="Assign to Worker">
+        </form>
     </div>
 </div>
 

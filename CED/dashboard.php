@@ -68,15 +68,13 @@ $completedIssues = getIssuesByStatus($username, 'Completed');
     
     <button class="button" onclick="location.href='get_pending_issues.php?status=Pending';">Get Pending Issues</button>
     
-    
     <button class="button" onclick="location.href='get_completed_issues.php?status=Completed';">Get Completed Issues</button>
-    
-
     
     <?php if($userPriority == 5) { ?>
         <button class="button" onclick="location.href='newuserform.php';">Add User</button>
     <?php } ?>
     
+    <button class="button" onclick="location.href='add_worker.php';">Add Worker</button>
     
     <!-- Button for printing data -->
     <button class="button" onclick="location.href='print_data.php';">Print Data</button>
