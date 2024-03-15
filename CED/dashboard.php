@@ -77,7 +77,7 @@ $completedIssues = getIssuesByStatus($username, 'Completed');
     <button class="button" onclick="location.href='add_worker.php';">Add Worker</button>
     
     <!-- Button for printing data -->
-    <button class="button" onclick="location.href='print_data.php';">Print Data</button>
+    <button class="button" onclick="location.href='print_data.php';">Reports</button>
 
     <!-- Add more content here for the dashboard -->
 </div>

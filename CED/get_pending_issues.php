@@ -97,10 +97,11 @@ $workers = getWorkers();
 <div class="issues-container">
     <center>
         <h2><?php echo ucfirst($status); ?> Issues<button class="button" onclick="window.print();">Print Data</button>
-    </h2>
+        </h2>
         <table>
             <thead>
                 <tr>
+                    <th>Sl. No.</th> <!-- Added column for Serial Number -->
                     <th>Complaint id</th>                
                     <th>Complaint Name</th>
                     <th>Designation</th>
@@ -110,6 +111,7 @@ $workers = getWorkers();
                     <th>Phone No</th>
                     <th>Email ID</th>
                     <th>Description</th>                
+                    <th>Created At</th> <!-- New column for Created At -->
                     <th>Change Status</th>
                     <?php if ($userPriority >= 2): ?>
                         <th>Assign Worker</th> <!-- Added column for Assign Worker button -->
@@ -119,8 +121,10 @@ $workers = getWorkers();
                 </tr>
             </thead>
             <tbody>
+                <?php $serialNumber = 1; ?>
                 <?php foreach ($issues as $issue): ?>
                     <tr>
+                        <td><?php echo $serialNumber; ?></td> <!-- Display Serial Number -->
                         <td><?php echo $issue['id']; ?></td>
                         <td><?php echo $issue['name']; ?></td>                    
                         <td><?php echo $issue['designation']; ?></td>
@@ -130,6 +134,7 @@ $workers = getWorkers();
                         <td><?php echo $issue['phone']; ?></td>
                         <td><?php echo $issue['email']; ?></td>
                         <td><?php echo $issue['description']; ?></td>
+                        <td><?php echo $issue['created_at']; ?></td> <!-- Display the Created At -->
                         <td>
                             <?php if ($status === 'Pending'): ?>
                                 <button onclick="openModal(<?php echo $issue['id']; ?>,'<?php echo $issue['name']; ?>','<?php echo $issue['description']; ?>')">Change Status</button>
@@ -147,11 +152,13 @@ $workers = getWorkers();
                             <button onclick="printIssueDetails(<?php echo $issue['id']; ?>)">Print</button>
                         </td>
                     </tr>
+                    <?php $serialNumber++; ?> <!-- Increment Serial Number -->
                 <?php endforeach; ?>
             </tbody>
         </table>
     </center>
 </div>
+
 
 
 <!-- Modal HTML structure -->

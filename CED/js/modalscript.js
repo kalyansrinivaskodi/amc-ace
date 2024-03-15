@@ -132,46 +132,68 @@ window.onclick = function(event) {
     }
 };
 
-
 function printIssueDetails(issueId) {
-    // Fetch issue details using AJAX
-    $.ajax({
-        url: 'fetch_issue_details.php', // Replace 'fetch_issue_details.php' with the actual URL to fetch issue details
-        type: 'POST',
-        data: { issueId: issueId },
-        dataType: 'json',
-        success: function(response) {
+    // Create a new XMLHttpRequest object
+    var xhr = new XMLHttpRequest();
+
+    // Configure the AJAX request
+    xhr.open('POST', 'fetch_issue_details.php');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    // Define the callback function for when the request completes
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Log the response received from the server
+            console.log(xhr.responseText);
+
+            // Parse the JSON response
+            var response = JSON.parse(xhr.responseText);
+
             // Open a new window for printing
             var printWindow = window.open('', '_blank');
-            
+
             // Construct the HTML content for printing
-            var htmlContent = '<h2>Issue Details</h2>';
-            htmlContent += '<p><strong>Complaint id:</strong> ' + response.id + '</p>';
-            htmlContent += '<p><strong>Complaint Name:</strong> ' + response.name + '</p>';
-            htmlContent += '<p><strong>Designation:</strong> ' + response.designation + '</p>';
-            htmlContent += '<p><strong>Department:</strong> ' + response.department + '</p>';
-            htmlContent += '<p><strong>Place of Complaint:</strong> ' + response.department_or_qtr_no + '</p>';
-            htmlContent += '<p><strong>Internal No:</strong> ' + response.internalno + '</p>';
-            htmlContent += '<p><strong>Phone:</strong> ' + response.phone + '</p>';
-            htmlContent += '<p><strong>Email:</strong> ' + response.email + '</p>';
-            htmlContent += '<p><strong>Description:</strong> ' + response.description + '</p>';
-            htmlContent += '<p><strong>Assigned To:</strong> ' + response.assigned_to + '</p>';
-            htmlContent += '<p><strong>Issue Created At:</strong> ' + response.created_at + '</p>';
-            htmlContent += '<p><strong>Resolved Date:</strong> ' + response.resolved_date + '</p>';
-            htmlContent += '<p><strong>Materials Used:</strong> ' + response.materials_used + '</p>';
-            htmlContent += '<p><strong>Details of the Work:</strong> ' + response.details_of_work + '</p>';
+            var htmlContent = '<u><h2>CED Complaint Issue Details</h2></u>';
+            htmlContent += '<t><p><strong>Complaint id : </strong>' + response.id + '</p></td>';
+            htmlContent += '<p><strong>Complaint Name : </strong> ' + response.name + '</p>';
+            htmlContent += '<p><strong>Designation : </strong> ' + response.designation + '</p>';
             
+            htmlContent += '<p><strong>Deparment : </strong> ' + response.department + '</p>';
+            htmlContent += '<p><strong>Internal No : </strong> ' + response.internalno + '</p>';
+            htmlContent += '<p><strong>Email ID : </strong> ' + response.email + '</p>';
+            
+            htmlContent += '<p><strong>Category Type : </strong> ' + response.dorq + '</p>';
+            htmlContent += '<p><strong>Place of complaint : </strong> ' + response.department_or_q_no + '</p>';
+
+            htmlContent += '<p><strong>Issue Raised at : </strong> ' + response.created_at + '</p>';
+
+            htmlContent += '<p><strong>Complain Description : </strong> ' + response.description + '</p>';
+            
+            htmlContent += '<p><strong>Assigned To : </strong>' + response.assigned_to + '</p>'; // Assigned To
+            htmlContent += '<p><strong>Material Used : </strong> .........................................................</p>';
+            htmlContent +='<p></p>'; // Material Used
+            htmlContent += '<p><strong>Details of Work : </strong> .....................................................</p><p></p>'; // Details of Work            
+            htmlContent +='<p>.........................................................................</p>';
+            htmlContent +='<p>Signature of the complainer(with date).........................................................................</p>';
+
             // Write the HTML content to the print window
             printWindow.document.write(htmlContent);
-            
+
             // Close the document for printing
             printWindow.document.close();
-            
+
             // Print the window
             printWindow.print();
-        },
-        error: function(xhr, status, error) {
-            console.error(error);
+        } else {
+            console.error('Error: Request failed with status ' + xhr.status);
         }
-    });
+    };
+
+    // Define the callback function for when an error occurs
+    xhr.onerror = function() {
+        console.error('Error: Request failed');
+    };
+
+    // Send the AJAX request with the issueId parameter
+    xhr.send('issueId=' + issueId);
 }

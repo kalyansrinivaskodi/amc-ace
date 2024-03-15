@@ -82,7 +82,7 @@ $result = $conn->query($sql);
 </div>
 
 <!-- Include your script files -->
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 <!-- <script src="script1.js"></script> -->
 </body>
 </html>

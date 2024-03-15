@@ -18,10 +18,11 @@ if (isset($_POST["issueId"])) {
     $issueId = $_POST["issueId"];
 
     // Prepare SQL statement to fetch issue details
+   // Prepare SQL statement to fetch issue details
     $sql = "SELECT * FROM usercomplaintsced WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $issueId);
-    
+    $stmt->bind_param("i", $issueId); // "i" indicates that $issueId is an integer
+
     // Execute the statement
     $stmt->execute();
     

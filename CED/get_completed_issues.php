@@ -1,6 +1,6 @@
-<?php include 'header.php' ?>
-<?php
+<?php include 'header.php'; ?>
 
+<?php
 // Check if the user is logged in
 if (!isset($_SESSION["cedusername"])) {
     // If not logged in, redirect to the login page
@@ -30,8 +30,9 @@ if (isset($_GET['status'])) {
         }
     
         // Prepare SQL statement to fetch issues
-        $sql = "SELECT * FROM usercomplaintsced where status='".$status."'";
+        $sql = "SELECT * FROM usercomplaintsced WHERE status=?";
         $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $status);
         $stmt->execute();
         $result = $stmt->get_result();
     
@@ -47,6 +48,7 @@ if (isset($_GET['status'])) {
     
         return $issues;
     }
+
     // Get issues for the user based on status
     $issues = getIssuesByStatus($username, $status);
 } else {
@@ -75,31 +77,33 @@ if (isset($_GET['status'])) {
     <table>
         <thead>
             <tr>
+                <th>Sl. No.</th> <!-- Added sl. no. column -->
                 <th>Complaint id</th>
-                
                 <th>Complaint Name</th>
-                <th>Designation</th>
                 <th>Department</th>
                 <th>Internal No</th>
                 <th>Email ID</th>
-                <th>description</th>
+                <th>Description</th>
                 <th>Remarks by CED</th>
-                
+                <th>Created At</th>
+                <th>Resolved At</th>
                 <!-- Add more columns as needed -->
             </tr>
         </thead>
         <tbody>
+            <?php $counter = 1; ?>
             <?php foreach ($issues as $issue): ?>
                 <tr>
+                    <td><?php echo $counter++; ?></td> <!-- Incrementing counter for sl. no. -->
                     <td><?php echo $issue['id']; ?></td>
-                    <td><?php echo $issue['name']; ?></td>                  
-                    <td><?php echo $issue['designation']; ?></td>
+                    <td><?php echo $issue['name']; ?></td>
                     <td><?php echo $issue['department']; ?></td>
-                    <td><?php echo $issue['internalno']; ?></td>  
+                    <td><?php echo $issue['internalno']; ?></td>
                     <td><?php echo $issue['email']; ?></td>
                     <td><?php echo $issue['description']; ?></td>
                     <td><?php echo $issue['remarks']; ?></td>
-                    
+                    <td><?php echo $issue['created_at']; ?></td>
+                    <td><?php echo $issue['resolved_at']; ?></td>
                     <!-- Add more columns as needed -->
                 </tr>
             <?php endforeach; ?>
@@ -111,4 +115,4 @@ if (isset($_GET['status'])) {
 </body>
 </html>
 
-<?php include 'footer.php' ?>
+<?php include 'footer.php'; ?>

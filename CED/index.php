@@ -25,15 +25,15 @@
             <?php 
 			$sql = mysqli_query($con, "SELECT dept_name FROM departments");
 			while ($row = $sql->fetch_assoc()){
-				echo '<option value=" '.$row['dept_name'].' "> '.$row['dept_name'].' </option>';
+				echo '<option value="'.$row['dept_name'].'"> '.$row['dept_name'].' </option>';
 			}
 			?>
         </select>
         <br>
     <fieldset>
-        <legend>(Place of complaint) Division / Quarter No. & Type:</legend>
+        <legend>(Place of complaint) Office / Quarter No. & Type:</legend>
         <label class="radio-inline">
-            <input type="radio" id="division" name="division_or_quarter" value="division" onchange="toggleDivisionQuarterField()" required> Division
+            <input type="radio" id="division" name="division_or_quarter" value="division" onchange="toggleDivisionQuarterField()" required> Office
         </label>
         <label class="radio-inline">
             <input type="radio" id="quarter" name="division_or_quarter" value="quarter" onchange="toggleDivisionQuarterField()"> Quarter
