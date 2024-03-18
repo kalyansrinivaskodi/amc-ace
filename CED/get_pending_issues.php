@@ -135,11 +135,19 @@ $workers = getWorkers();
                         <td><?php echo $issue['email']; ?></td>
                         <td><?php echo $issue['description']; ?></td>
                         <td><?php echo $issue['created_at']; ?></td> <!-- Display the Created At -->
-                        <td>
-                            <?php if ($status === 'Pending'): ?>
-                                <button onclick="openModal(<?php echo $issue['id']; ?>,'<?php echo $issue['name']; ?>','<?php echo $issue['description']; ?>')">Change Status</button>
+                        
+                        <td>                            
+                            <?php if ($status === 'Pending'): ?>                       
+                               <button onclick="openModal(                                    
+                                    '<?php echo $issue['id']; ?>',
+                                    '<?php echo $issue['name']; ?>',
+                                    '<?php echo $issue['description']; ?>',
+                                    '<?php echo $issue['created_at']; ?>')">
+                                    Change Status
+                                </button>                                
                             <?php endif; ?>
                         </td>
+
                         <?php if ($userPriority >= 2): ?>
                             <td>
                                 <?php if ($status === 'Pending'): ?>

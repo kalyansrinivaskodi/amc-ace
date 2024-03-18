@@ -22,25 +22,15 @@ window.onclick = function(event) {
 };
 
 
-// Confirm status change
-document.getElementById("confirmStatusChange").addEventListener("click", function() {
-    var remarks = document.getElementById("remarksInput").value;
-    if (remarks.trim() !== "") {
-        // If remarks are provided, submit the form to update the status
-        document.getElementById("remarks").value = remarks;
-        document.getElementById("statusForm").submit();
-    } else {
-        alert("Remarks cannot be empty.");
-    }
-});
+
 
 // script.js
-
-function openModal(issueId, issueName, issueDescription) {
+function openModal(issueId, issueName, issueDescription, issueCreatedAt) {
     // Populate the placeholders with issue details
     document.getElementById('issueIdPlaceholder').innerText = issueId;
     document.getElementById('issueNamePlaceholder').innerText = issueName;
     document.getElementById('issueDescriptionPlaceholder').innerText = issueDescription;
+    document.getElementById('issueCreatedAt').innerText = issueCreatedAt;
 
     // Set the issue ID in a hidden input field within the modal
     document.getElementById('issueIdInput').value = issueId;
@@ -50,8 +40,6 @@ function openModal(issueId, issueName, issueDescription) {
     modal.style.display = 'block';
 }
 
-
-
 // Function to close the modal
 function closeModal() {
     var modal = document.getElementById('statusModal');
@@ -60,7 +48,8 @@ function closeModal() {
 
 // When the user clicks on Confirm button
 document.getElementById("confirmStatusChange").addEventListener("click", function() {
-    var issueId = document.getElementById("issueIdInput").value;
+    var issueId = document.getElementById("issueIdInput").value;    
+    var material_used = document.getElementById("material_usedInput").value;
     var remarks = document.getElementById("remarksInput").value;
 
     // AJAX request to update the status in the database
@@ -74,13 +63,13 @@ document.getElementById("confirmStatusChange").addEventListener("click", functio
                 location.reload(); // Reload the page to reflect changes
             } else {
                 // Error occurred while updating status
-                alert("Error occurred while updating status. Please try again.");
+                alert("error while uploading the status");
             }
         }
     };
     xhr.open("POST", "update_status.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("issueId=" + issueId + "&remarks=" + remarks);
+    xhr.send("issueId=" + issueId + "&material_used=" + material_used + "&remarks=" + remarks);
 });
 
 // Close the modal when the user clicks on the close button

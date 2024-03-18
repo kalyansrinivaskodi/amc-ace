@@ -38,19 +38,28 @@ $result = $conn->query($sql);
         <span class="close">&times;</span>
         <h2><u>CED Action Report</u></h2>
         
-        <p><strong>Date of Complaint Raised:</strong><span id="issueDateOfComplaint"></span> </span></p>
+        <p><strong>Createdat:</strong><span id="issueCreatedAt"></span> </p>
         <p><strong>Complaint ID:</strong> <span id="issueIdPlaceholder"></span></p>
         <p><strong>Name:</strong> <span id="issueNamePlaceholder"></span></p>
         
         <p><strong>Description of the complaint:</strong> <span id="issueDescriptionPlaceholder"></span></p>
         
-        <p><strong>Material Used & Details of the Work:</strong> <span id="issueDescriptionPlaceholder"></span></p>
+        <p><strong>Material Used for the Work:</strong></p>
         <input type="hidden" id="issueIdInput" value="">
-        <input type="textbox" id="remarksInput" placeholder="Material Used & details of the work..">
+        <input type="text" id="material_usedInput" placeholder="Material Used..">
+
+        <p><strong>Details of the Work:</strong></p>
+        <input type="hidden" id="issueIdInput" value="">
+        <input type="text" id="remarksInput" placeholder="Details of the work.." >
 
         <button id="confirmStatusChange">Change Status to Completed</button>
     </div>
 </div>
+
+
+
+
+
 
 <div id="assignWorkerModal" class="modal">
     <div class="modal-content">
