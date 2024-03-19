@@ -8,7 +8,7 @@
    $db="amcdb";
    $con = mysqli_connect($servername, $username, $password,$db);
 ?>
-<form action="submit_complaint.php" method="post">
+<form action="submit_complaint.php" method="post" onsubmit="return validateForm()">
     <center> <h2>CED Complaint Form</h2> </center>  
     <label for="name">Name of the Complainant:</label>
     <input type="text" id="name" name="name" required>
