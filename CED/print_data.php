@@ -25,28 +25,30 @@
     <div class="form-group">    
         <label for="status">Status:</label>
         <select id="status" name="status">
+            <option value="Both">Both</option> <!-- Option for both pending and completed statuses -->
             <option value="Pending">Pending</option>
             <option value="Completed">Completed</option>
-            <option value="Both">Both</option> <!-- New option for both statuses -->
         </select>
     </div><br>
     
     <div class="form-group">
         <label for="division">Department:</label>
         <select id="division" name="division" class="styled-select" >
-                <!-- Add options for divisions -->
-                <?php 
-                $sql = mysqli_query($con, "SELECT dept_name FROM departments");
-                while ($row = $sql->fetch_assoc()){
-                    echo '<option value="'.$row['dept_name'].'">'.$row['dept_name'].'</option>';
-                }
-                ?>
+            <option value="AllDepartments">All Departments</option> <!-- Option for all departments -->
+            <!-- Add options for divisions -->
+            <?php 
+            $sql = mysqli_query($con, "SELECT dept_name FROM departments");
+            while ($row = $sql->fetch_assoc()){
+                echo '<option value="'.$row['dept_name'].'">'.$row['dept_name'].'</option>';
+            }
+            ?>
         </select>
     </div><br>
 
     <div class="form-group">
         <label for="complaintCategory">Complaint Category:</label>
         <select id="complaintCategory" name="complaintCategory">
+            <option value="BothQuarterDivision">Both Quarter/Division</option> <!-- Option for both quarter and division -->
             <option value="division">division</option>
             <option value="quarter">quarter</option>
             <!-- Add more options for complaint categories -->
