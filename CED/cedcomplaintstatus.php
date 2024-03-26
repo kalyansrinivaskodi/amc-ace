@@ -21,7 +21,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "2502";
-    $dbname = "amcdb";
+    $dbname = "ceddb";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

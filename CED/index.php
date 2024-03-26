@@ -5,7 +5,7 @@
    $servername = "localhost";
    $username = "root";
    $password = "2502";
-   $db="amcdb";
+   $db="ceddb";
    $con = mysqli_connect($servername, $username, $password,$db);
 ?>
 <form action="submit_complaint.php" method="post" onsubmit="return validateForm()">
@@ -61,7 +61,7 @@
     <br>
 
 
-    <label for="contact">Contact Details:</label>
+    <label for="contact">Mobile Number:</label>
     <input type="tel" id="contact" name="contact" placeholder="Phone Number" required>
     
     <label for="internal">Internal Number:</label>
@@ -74,6 +74,9 @@
 
     <label for="nature">Nature of the Complaint (Description):</label>
     <textarea id="nature" name="nature" required></textarea>
+    
+    <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+
 
     <input type="submit" value="Submit">
 </form>

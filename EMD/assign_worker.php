@@ -2,7 +2,7 @@
 
 <?php
 // Check if the user is logged in
-if (!isset($_SESSION["cedusername"])) {
+if (!isset($_SESSION["emdusername"])) {
     // If not logged in, redirect to the login page
     header("Location: login.php");
     exit();
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $servername = "localhost";
         $username = "root";
         $password = "2502";
-        $dbname = "ceddb";
+        $dbname = "emddb";
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Prepare SQL statement to update issue with assigned worker
-        $sql = "UPDATE usercomplaintsced SET assigned_to = ? WHERE id = ?";
+        $sql = "UPDATE usercomplaintsemd SET assigned_to = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("si", $worker, $issueId);
 
@@ -66,12 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <p><?php echo $message; ?></p>
 </div>
 
+<?php include 'footer.php' ?>
 
 <!-- Redirect back to pending issues page after countdown -->
 <div id="countdown" style="font-size: 24px;"></div>
 
-
-<script src="js/modalscript.js"></script>
 <script>
 // Countdown timer
 var count = 3;
@@ -85,4 +84,3 @@ var countdownInterval = setInterval(function() {
     }
 }, 1000);
 </script>
-<?php include 'footer.php' ?>

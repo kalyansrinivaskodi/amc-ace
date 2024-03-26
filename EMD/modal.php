@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "2502";
-$dbname = "ceddb";
+$dbname = "emddb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,20 +14,18 @@ if ($conn->connect_error) {
 }
 
 // Query to fetch workers
-$sql = "SELECT * FROM cedworkers";
+$sql = "SELECT * FROM emdworkers";
 $result = $conn->query($sql);
 ?>
 
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issues</title>
     <link rel="stylesheet" href="css/modal.css">
-
-    
 </head>
 <body>
 
@@ -37,8 +35,8 @@ $result = $conn->query($sql);
 <!-- Modal HTML structure -->
 <div id="statusModal" class="modal">
     <div class="modal-content">
-        <span class="close">x</span>
-        <h2><u>CED Action Report</u></h2>
+        <span class="close">&times;</span>
+        <h2><u>emd Action Report</u></h2>
         
         <p><strong>Createdat:</strong><span id="issueCreatedAt"></span> </p>
         <p><strong>Complaint ID:</strong> <span id="issueIdPlaceholder"></span></p>
@@ -57,6 +55,8 @@ $result = $conn->query($sql);
         <button id="confirmStatusChange">Change Status to Completed</button>
     </div>
 </div>
+
+
 
 
 
@@ -89,7 +89,7 @@ $result = $conn->query($sql);
         </form>
     </div>
 </div>
-<link rel="stylesheet" href="css/modal.css">
+
 <!-- Include your script files -->
 <script src="js/script.js"></script>
 <!-- <script src="script1.js"></script> -->

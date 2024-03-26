@@ -1,0 +1,27 @@
+.dashboard-container {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+/* Style for the dashboard buttons */
+.button {
+    display: block; /* Changed from inline-block */
+    width: 100%; /* Added to make buttons take full width */
+    margin: 10px 0; /* Adjusted margin for spacing */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+    background-color: #0056b3;
+}

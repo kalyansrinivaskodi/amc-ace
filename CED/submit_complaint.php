@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "2502";
-$db="amcdb";
+$db="ceddb";
 
 $conn = new mysqli($servername, $username, $password, $db);
 
@@ -45,5 +45,19 @@ echo "<b>Your CED complaint number: " . $last_id."</b><br></center></h1>";
 $stmt->close();
 $conn->close();
 ?>
+
+<?php
+// Verify CAPTCHA
+$captcha_response = $_POST['g-recaptcha-response'];
+$secret_key = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret_key&response=$captcha_response");
+$response_keys = json_decode($response, true);
+if (intval($response_keys["success"]) !== 1) {
+    // CAPTCHA verification failed
+    die('CAPTCHA verification failed.');
+}
+// CAPTCHA verification successful, proceed with form processing
+?>
+
 
 <?php include 'footer.php' ?>

@@ -9,7 +9,7 @@ if (isset($_POST['issueId']) && isset($_POST['material_used']) && isset($_POST['
     $servername = "localhost";
     $username = "root";
     $password = "2502";
-    $dbname = "ceddb";
+    $dbname = "emddb";
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection
@@ -18,10 +18,10 @@ if (isset($_POST['issueId']) && isset($_POST['material_used']) && isset($_POST['
     }
 
     // Prepare and execute SQL statement to update status and remarks
-    $stmt = $conn->prepare("UPDATE usercomplaintsced SET status='Completed', material_used=?, remarks=? WHERE id=?");
+    $stmt = $conn->prepare("UPDATE usercomplaintsemd SET status='Completed', material_used=?, remarks=? WHERE id=?");
     $stmt->bind_param("ssi", $material_used, $remarks, $issueId);
     $stmt->execute();
-    // echo "UPDATE usercomplaintsced SET status='Completed', material_used=$material_used, remarks=$remarks WHERE id=$issueId";
+    // echo "UPDATE usercomplaintsemd SET status='Completed', material_used=$material_used, remarks=$remarks WHERE id=$issueId";
 
     // Check if the update was successful
     if ($stmt->affected_rows > 0) {

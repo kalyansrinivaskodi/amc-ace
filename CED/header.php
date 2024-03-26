@@ -12,7 +12,6 @@
   
     <link rel="stylesheet" href="css/cedstyles.css">
     
-    
 </head>
 
 <body>
@@ -74,5 +73,8 @@
 </nav>
 
 <script src="js/headerscript.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    
 </body>
 </html>

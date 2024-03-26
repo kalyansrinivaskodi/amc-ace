@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost"; // Change this to your database server name
     $username_db = "root"; // Change this to your database username
     $password_db = "2502"; // Change this to your database password
-    $dbname = "amcdb"; // Change this to your database name
+    $dbname = "ceddb"; // Change this to your database name
     $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
     // Check connection

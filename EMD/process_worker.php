@@ -1,7 +1,7 @@
 <?php include 'header.php' ?>
 <?php
 // Check if the user is logged in
-if (!isset($_SESSION["cedusername"])) {
+if (!isset($_SESSION["emdusername"])) {
     // If not logged in, redirect to the login page
     header("Location: login.php");
     exit();
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
     $password = "2502";
-    $db = "ceddb";
+    $db = "emddb";
     $con = mysqli_connect($servername, $username, $password, $db);
 
     // Check connection
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert the worker data into the database
-    $sql = "INSERT INTO cedworkers (workername) VALUES ('$worker_name')";
+    $sql = "INSERT INTO emdworkers (workername) VALUES ('$worker_name')";
 
     if (mysqli_query($con, $sql)) {
         echo "Worker added successfully";

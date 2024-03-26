@@ -2,14 +2,14 @@
 
 <?php
 // Check if the user is logged in
-if (!isset($_SESSION["cedusername"])) {
+if (!isset($_SESSION["emdusername"])) {
     // If not logged in, redirect to the login page
     header("Location: login.php");
     exit();
 }
 
 // Get the username from the session
-$username = $_SESSION["cedusername"];
+$username = $_SESSION["emdusername"];
 
 // Check if the status parameter is set in the URL
 if (isset($_GET['status'])) {
@@ -21,7 +21,7 @@ if (isset($_GET['status'])) {
         $servername = "localhost";
         $username_db = "root";
         $password_db = "2502";
-        $dbname = "ceddb";
+        $dbname = "emddb";
         $conn = new mysqli($servername, $username_db, $password_db, $dbname);
     
         // Check connection
@@ -30,7 +30,7 @@ if (isset($_GET['status'])) {
         }
     
         // Prepare SQL statement to fetch issues
-        $sql = "SELECT * FROM usercomplaintsced WHERE status=?";
+        $sql = "SELECT * FROM usercomplaintsemd WHERE status=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $status);
         $stmt->execute();
@@ -84,7 +84,7 @@ if (isset($_GET['status'])) {
                 <th>Internal No</th>
                 <th>Email ID</th>
                 <th>Description</th>
-                <th>Remarks by CED</th>
+                <th>Remarks by emd</th>
                 <th>Complaint Raised on (Date)</th>
                 <th>Complaint Resolved on (Date)</th>
                 <!-- Add more columns as needed -->

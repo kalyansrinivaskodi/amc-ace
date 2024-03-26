@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #0056b3;
+    padding: 15px 0;
+    color: #fff;
+    text-align: center;
+}
+
+nav {
+    background-color: #007BFF;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: yellow;
+    color:black;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #007BFF;
+    border-radius: 0 0 5px 5px;
+    z-index: 1;
+}
+
+li:hover .submenu {
+    display: block;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px;
+}
+
+.submenu a:hover {
+    background-color: yellow;    
+    color:black;
+}
+
+/* Add this CSS to your existing styles or styles.css file */
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other content */
+    background-color: #007BFF;
+    
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow effect */
+    transition: top 0.3s; /* Add smooth transition */
+
+}
+
+.fixed-navbar ul {
+    padding: 0;
+}
+
+.fixed-navbar li {
+}
+
+.fixed-navbar a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.fixed-navbar a:hover {
+    background-color: yellow; /* Adjust hover background color */
+    color:black;
+}

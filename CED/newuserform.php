@@ -5,7 +5,7 @@
    $servername = "localhost";
    $username = "root";
    $password = "2502";
-   $db="amcdb";
+   $db="ceddb";
    $con = mysqli_connect($servername, $username, $password,$db);
 
    if (!isset($_SESSION["cedusername"])) {

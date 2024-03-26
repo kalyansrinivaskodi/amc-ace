@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "2502";
-$dbname = "ceddb";
+$dbname = "emddb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -19,7 +19,7 @@ if (isset($_POST["issueId"])) {
 
     // Prepare SQL statement to fetch issue details
    // Prepare SQL statement to fetch issue details
-    $sql = "SELECT * FROM usercomplaintsced WHERE id = ?";
+    $sql = "SELECT * FROM usercomplaintsemd WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $issueId); // "i" indicates that $issueId is an integer
 

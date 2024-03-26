@@ -1,12 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration Form</title>
-</head>
-<body>
-    <h2>User Registration Form</h2>
+<?php include 'header.php' ?>
+<!-- Your page content goes here -->
+
+<?php
+   $servername = "localhost";
+   $username = "root";
+   $password = "2502";
+   $db="emddb";
+   $con = mysqli_connect($servername, $username, $password,$db);
+
+   if (!isset($_SESSION["emdusername"])) {
+    // If not logged in, redirect to the login page
+    header("Location: login.php");
+    exit();
+    }
+
+    // Check if the session variable emdusername is set
+    if(isset($_SESSION['emdusername'])) {
+        // Fetch priority from the database based on the emdusername
+        $emdusername = $_SESSION['emdusername'];
+        
+        $userPriority = $_SESSION["priority"]; // Assuming priority is stored in session    
+
+    } 
+
+    // Generate options for priority dropdown
+    $priorityOptions = "";
+    for ($i = $userPriority - 1; $i >= 1; $i--) {
+        $priorityOptions .= "<option value='$i'>$i</option>";
+    }
+?>  
+
+<center><h2>User Registration Form</h2></center>
     <form action="insert_user.php" method="post">
         <label for="username">Username:</label><br>
         <input type="text" id="username" name="username" required><br><br>
@@ -21,12 +45,18 @@
         <input type="text" id="designation" name="designation"><br><br>
 
         <label for="priority">Priority:</label><br>
-        <input type="number" id="priority" name="priority" min="1" max="10"><br><br>
-
+        <select id="priority" name="priority">
+            <?php echo $priorityOptions; ?>
+        </select><br><br>
+        
         <label for="typeofservice">Type of Service:</label><br>
-        <input type="text" id="typeofservice" name="typeofservice"><br><br>
+        <select id="typeofservice" name="typeofservice">
+            <option value="IT">IT</option>
+            <option value="CED">CED</option> <!-- Add selected and disabled attributes to freeze -->
+            <option value="EMD" selected>EMD</option>
+        </select><br><br>
 
         <input type="submit" value="Submit">
     </form>
-</body>
-</html>
+
+<?php include 'footer.php' ?>

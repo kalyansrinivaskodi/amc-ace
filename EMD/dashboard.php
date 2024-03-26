@@ -1,14 +1,14 @@
 <?php include 'header.php' ?>
 <?php
 // Check if the user is logged in
-if (!isset($_SESSION["cedusername"])) {
+if (!isset($_SESSION["emdusername"])) {
     // If not logged in, redirect to the login page
     header("Location: login.php");
     exit();
 }
 
 // Get the username from the session
-$username = $_SESSION["cedusername"];
+$username = $_SESSION["emdusername"];
 
 $userPriority = $_SESSION["priority"]; // Assuming priority is stored in session
 
@@ -19,7 +19,7 @@ function getIssuesByStatus($username, $status) {
     $servername = "localhost";
     $username_db = "root";
     $password_db = "2502";
-    $dbname = "ceddb";
+    $dbname = "emddb";
     $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
     // Check connection
@@ -28,7 +28,7 @@ function getIssuesByStatus($username, $status) {
     }
 
     // Prepare SQL statement to fetch issues
-    $sql = "SELECT * FROM usercomplaintsced where status='".$status."'";
+    $sql = "SELECT * FROM usercomplaintsemd where status='".$status."'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();

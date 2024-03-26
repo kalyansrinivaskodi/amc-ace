@@ -1,5 +1,3 @@
-    <script src="loadContent.js"></script>
-    <script src="formSubmit.js"></script>
-
+<script src="js/script.js"></script>
 </body>
 </html>

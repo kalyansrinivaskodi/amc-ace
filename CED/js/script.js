@@ -28,7 +28,12 @@ function toggleDivisionQuarterField() {
         quarterField.style.display = "block";
     }
 }
-
+window.onclick = function(event) {
+    var modal = document.getElementById('assignWorkerModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
 function validateForm() {
     // Name should not have any special characters other than . and ,
     var name = document.getElementById("name").value;

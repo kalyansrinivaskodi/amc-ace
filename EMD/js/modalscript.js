@@ -130,7 +130,7 @@ function printIssueDetails(issueId) {
             var printWindow = window.open('', '_blank');
 
             // Construct the HTML content for printing
-            var htmlContent = '<u><h2>CED Complaint Issue Details</h2></u>';
+            var htmlContent = '<u><h2>END Complaint Issue Details</h2></u>';
             htmlContent += '<t><p><strong>Complaint id : </strong>' + response.id + '</p></td>';
             htmlContent += '<p><strong>Complaint Name : </strong> ' + response.name + '</p>';
             htmlContent += '<p><strong>Designation : </strong> ' + response.designation + '</p>';

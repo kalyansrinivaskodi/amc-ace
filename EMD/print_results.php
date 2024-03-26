@@ -2,7 +2,7 @@
 
 <?php
 // Check if the user is logged in
-if (!isset($_SESSION["cedusername"])) {
+if (!isset($_SESSION["emdusername"])) {
     // If not logged in, redirect to the login page
     header("Location: login.php");
     exit();
@@ -12,7 +12,7 @@ if (!isset($_SESSION["cedusername"])) {
 $servername = "localhost";
 $username = "root";
 $password = "2502";
-$db = "ceddb";
+$db = "emddb";
 $con = mysqli_connect($servername, $username, $password, $db);
 
 // Get form data
@@ -23,7 +23,7 @@ $department = isset($_POST['division']) && $_POST['division'] !== 'AllDepartment
 $complaintCategory = isset($_POST['complaintCategory']) && $_POST['complaintCategory'] !== 'BothQuarterDivision' ? $_POST['complaintCategory'] : null;
 
 // Construct SQL query
-$sql = "SELECT * FROM usercomplaintsced WHERE 1=1";
+$sql = "SELECT * FROM usercomplaintsemd WHERE 1=1";
 
 // Append status condition if provided
 if ($status && $status !== 'Both') {

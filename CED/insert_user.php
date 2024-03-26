@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_SESSION['form_submitted']))
     $servername = "localhost";
     $username = "root"; // Replace with your database username
     $password = "2502"; // Replace with your database password
-    $dbname = "amcdb"; // Replace with your database name
+    $dbname = "ceddb"; // Replace with your database name
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection

@@ -1,43 +1,63 @@
 <?php include 'header.php' ?>
 <?php
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Connect to the database
-    $servername = "localhost";
-    $username = "root"; // Replace with your database username
-    $password = "2502"; // Replace with your database password
-    $dbname = "amcdb"; // Replace with your database name
-    $conn = new mysqli($servername, $username, $password, $dbname);
+// Establish database connection
+$servername = "localhost";
+$username = "root";
+$password = "2502";
+$db="emddb";
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+$conn = new mysqli($servername, $username, $password, $db);
 
-    // Prepare and bind the SQL statement
-    $sql = "INSERT INTO usercomplaintsemd (name, department, phone, email, description)
-            VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssss", $name, $department, $phone, $email, $description);
-
-    // Set parameters and execute
-    $name = $_POST["name"];
-    $department = $_POST["department"];
-    $phone = $_POST["phone"];
-    $email = $_POST["email"];
-    $description = $_POST["description"];
-    $stmt->execute();
-    
-    $last_id = $conn->insert_id;    
-
-    echo "<h1><center>Complaint submitted successfully<br>";
-    
-    echo "<b>Your EMD complaint number: " . $last_id."</b><br></center></h1>";
-
-    // Close statement and database connection
-    $stmt->close();
-    $conn->close();
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+// Prepare and bind SQL statement
+$stmt = $conn->prepare("INSERT INTO usercomplaintsemd (name, designation, department, dorq, department_or_qtr_no, phone, internalno, email, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssss", $name, $designation,$department, $divisionOrQuarter,  $division, $contact, $internal, $email, $nature);
+
+// Set parameters and execute
+$name = $_POST['name'];
+$designation = $_POST['designation'];
+// $division = $_POST['division'];
+$department=$_POST['department'];
+
+$divisionOrQuarter = $_POST['division_or_quarter'];
+
+if ($divisionOrQuarter === 'division') {
+    $division = $_POST['division'];
+} elseif ($divisionOrQuarter === 'quarter') {
+    $division = null; // Make sure division is null if quarter is selected
+    $division = $_POST['quarter'];
+}
+
+$contact = $_POST['contact'];
+$internal = $_POST['internal'];
+$email = $_POST['email'];
+$nature = $_POST['nature'];
+
+$stmt->execute();
+$last_id = $conn->insert_id;    
+echo "<h1><center>Complaint submitted successfully<br>";
+echo "<b>Your emd complaint number: " . $last_id."</b><br></center></h1>";
+
+$stmt->close();
+$conn->close();
 ?>
+
+<?php
+// Verify CAPTCHA
+$captcha_response = $_POST['g-recaptcha-response'];
+$secret_key = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret_key&response=$captcha_response");
+$response_keys = json_decode($response, true);
+if (intval($response_keys["success"]) !== 1) {
+    // CAPTCHA verification failed
+    die('CAPTCHA verification failed.');
+}
+// CAPTCHA verification successful, proceed with form processing
+?>
+
 
 <?php include 'footer.php' ?>

@@ -4,45 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        
-        table {
-            width: 80%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            border-radius: 10px; /* Rounded corners for the table */
-            overflow: hidden; /* Hide overflow to prevent border-radius clipping */
-        }
-
-        th, td {
-            border: 2px solid black;
-            padding: 10px;
-            text-align: left;
-            border-radius: 8px; /* Rounded corners for table cells */
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        /* Hover Effect */
-        tr:hover {
-            background-color: #f5f5f5;
-            cursor: pointer;
-        }
-
-        /* Alternate Row Colors */
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-    </style>
     <title>User Complaints</title>
     
 </head>
 <body>
     <h2>User Complaints</h2>
     <form action="" method="post">
-        <label for="id">Enter EMD Complaint ID:</label>
+        <label for="id">Enter emd Complaint ID:</label>
         <input type="text" id="id" name="id">
         <input type="submit" value="Submit">
     </form>
@@ -53,7 +21,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "2502";
-    $dbname = "amcdb";
+    $dbname = "emddb";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -74,9 +42,9 @@
         if ($result->num_rows > 0) {
             // Display data in a table
             echo "<center><table>";
-            echo "<tr><th>ID</th><th>Status</th><th>Complainant Name</th></tr>";
+            echo "<tr><th>ID</th><th>Status</th><th>Complainant Name</th><th>Assigned To</th></tr>";
             while($row = $result->fetch_assoc()) {
-                echo "<tr><td>".$row["id"]."</td><td>".$row["status"]."</td><td>".$row["name"]."</td></tr>";
+                echo "<tr><td>".$row["id"]."</td><td>".$row["status"]."</td><td>".$row["name"]."</td><td>".$row["assigned_to"]."</td></tr>";
             }
             echo "</table></center>";
         } else {
