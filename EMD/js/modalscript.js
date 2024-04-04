@@ -108,7 +108,6 @@ document.getElementsByClassName("close")[1].addEventListener("click", function()
 
 // When the user clicks anywhere outside of the modal, close it
 
-
 function printIssueDetails(issueId) {
     // Create a new XMLHttpRequest object
     var xhr = new XMLHttpRequest();
@@ -129,29 +128,27 @@ function printIssueDetails(issueId) {
             // Open a new window for printing
             var printWindow = window.open('', '_blank');
 
-            // Construct the HTML content for printing
-            var htmlContent = '<u><h2>END Complaint Issue Details</h2></u>';
-            htmlContent += '<t><p><strong>Complaint id : </strong>' + response.id + '</p></td>';
-            htmlContent += '<p><strong>Complaint Name : </strong> ' + response.name + '</p>';
-            htmlContent += '<p><strong>Designation : </strong> ' + response.designation + '</p>';
-            
-            htmlContent += '<p><strong>Deparment : </strong> ' + response.department + '</p>';
-            htmlContent += '<p><strong>Internal No : </strong> ' + response.internalno + '</p>';
-            htmlContent += '<p><strong>Email ID : </strong> ' + response.email + '</p>';
-            
-            htmlContent += '<p><strong>Category Type : </strong> ' + response.dorq + '</p>';
-            htmlContent += '<p><strong>Place of complaint : </strong> ' + response.department_or_q_no + '</p>';
-
-            htmlContent += '<p><strong>Issue Raised at : </strong> ' + response.created_at + '</p>';
-
-            htmlContent += '<p><strong>Complain Description : </strong> ' + response.description + '</p>';
-            
-            htmlContent += '<p><strong>Assigned To : </strong>' + response.assigned_to + '</p>'; // Assigned To
-            htmlContent += '<p><strong>Material Used : </strong> .........................................................</p>';
-            htmlContent +='<p></p>'; // Material Used
-            htmlContent += '<p><strong>Details of Work : </strong> .....................................................</p><p></p>'; // Details of Work            
-            htmlContent +='<p>.........................................................................</p>';
-            htmlContent +='<p>Signature of the complainer(with date).........................................................................</p>';
+            // Construct the HTML content for printing in a neat tabular format
+            var htmlContent = '<div style="text-align: center;">';
+            htmlContent += '<table style="margin: 0 auto;">';
+            htmlContent += '<tr><th colspan="2">EMD Complaint Issue Details</th></tr>';
+            htmlContent += '<tr><td><strong>Complaint id :</strong></td><td>' + response.id + '</td></tr>';
+            htmlContent += '<tr><td><strong>Complaint Name :</strong></td><td>' + response.name + '</td></tr>';
+            htmlContent += '<tr><td><strong>Designation :</strong></td><td>' + response.designation + '</td></tr>';
+            htmlContent += '<tr><td><strong>Department :</strong></td><td>' + response.department + '</td></tr>';
+            htmlContent += '<tr><td><strong>Internal No :</strong></td><td>' + response.internalno + '</td></tr>';
+            htmlContent += '<tr><td><strong>Email ID :</strong></td><td>' + response.email + '</td></tr>';
+            htmlContent += '<tr><td><strong>Category Type :</strong></td><td>' + response.dorq + '</td></tr>';
+            htmlContent += '<tr><td><strong>Place of complaint :</strong></td><td>' + response.department_or_qtr_no + '</td></tr>';
+            htmlContent += '<tr><td><strong>Issue Raised at :</strong></td><td>' + response.created_at + '</td></tr>';
+            htmlContent += '<tr><td><strong>Complain Description :</strong></td><td>' + response.description + '</td></tr>';
+            htmlContent += '<tr><td><strong>Assigned To :</strong></td><td>' + response.assigned_to + '</td></tr>';
+            htmlContent += '<tr><td><strong>Material Used :</strong></td><td>.........................................................</td></tr>';
+            htmlContent += '<tr><td><strong>Details of Work :</strong></td><td>.....................................................</td></tr>';
+            htmlContent += '<tr><td colspan="2">.........................................................................</td></tr>';
+            htmlContent += '<tr><td colspan="2">Signature of the complainer (with date)..................................................</td></tr>';
+            htmlContent += '</table>';
+            htmlContent += '</div>';
 
             // Write the HTML content to the print window
             printWindow.document.write(htmlContent);

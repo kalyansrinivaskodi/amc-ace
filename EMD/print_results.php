@@ -32,7 +32,7 @@ if ($status && $status !== 'Both') {
 
 // Append department condition if provided
 if ($department) {
-    $sql .= " AND department=?";
+    $sql .= " AND  	department_or_qtr_no=?";
 }
 
 // Append complaint category condition if provided

@@ -32,7 +32,7 @@ if ($status && $status !== 'Both') {
 
 // Append department condition if provided
 if ($department) {
-    $sql .= " AND department=?";
+    $sql .= " AND  	department_or_qtr_no=?";
 }
 
 // Append complaint category condition if provided
@@ -114,6 +114,9 @@ mysqli_stmt_close($stmt);
             <th>Internal No</th>
             <th>Phone No</th>
             <th>Email ID</th>
+            <th>Complaint Raised on</th>            
+            <th>Complaint Resolved on</th>
+            <th>Email ID</th>
             <th>Description</th>
             <th>Status</th>
             <!-- Add more columns as needed -->
@@ -131,6 +134,8 @@ mysqli_stmt_close($stmt);
                 <td><?php echo $issue['internalno']; ?></td>
                 <td><?php echo $issue['phone']; ?></td>
                 <td><?php echo $issue['email']; ?></td>
+                <td><?php echo $issue['created_at']; ?></td>
+                <td><?php echo $issue['resolved_at']; ?></td>
                 <td><?php echo $issue['description']; ?></td>
                 <td><?php echo $issue['status']; ?></td>
                 <!-- Add more columns as needed -->

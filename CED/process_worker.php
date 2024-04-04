@@ -11,7 +11,13 @@ if (!isset($_SESSION["cedusername"])) {
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate and sanitize inputs (you can add more validations as per your requirements)
+    $cedusername=$_SESSION["cedusername"];
+    
     $worker_name = $_POST["worker_name"];
+    $worker_designation = $_POST["worker_designation"];
+    $worker_category = $_POST["worker_category"];
+
+
 
     // Process the data as required (e.g., insert into database)
     // Assuming you have already established database connection
@@ -27,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert the worker data into the database
-    $sql = "INSERT INTO cedworkers (workername) VALUES ('$worker_name')";
+    $sql = "INSERT INTO cedworkers (workername,workerdesignation,workercategory,createdby) VALUES ('$worker_name','$worker_designation','$worker_category','$cedusername')";
 
     if (mysqli_query($con, $sql)) {
         echo "Worker added successfully";
@@ -37,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Close database connection
     mysqli_close($con);
+    
 } else {
     // Redirect to add_worker.php if accessed directly without form submission
     header("Location: add_worker.php");

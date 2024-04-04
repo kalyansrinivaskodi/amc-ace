@@ -11,7 +11,10 @@ if (!isset($_SESSION["emdusername"])) {
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate and sanitize inputs (you can add more validations as per your requirements)
+    $emdusername=$_SESSION["emdusername"];
     $worker_name = $_POST["worker_name"];
+    $worker_designation = $_POST["worker_designation"];
+    $worker_category = $_POST["worker_category"];
 
     // Process the data as required (e.g., insert into database)
     // Assuming you have already established database connection
@@ -27,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert the worker data into the database
-    $sql = "INSERT INTO emdworkers (workername) VALUES ('$worker_name')";
+    $sql = "INSERT INTO emdworkers (workername,workerdesignation,workercategory,createdby) VALUES ('$worker_name','$worker_designation','$worker_category','$emdusername')";
 
     if (mysqli_query($con, $sql)) {
         echo "Worker added successfully";

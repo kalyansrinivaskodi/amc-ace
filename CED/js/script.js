@@ -34,6 +34,20 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 };
+
+
+function toggleDepartmentDropdown() {
+    var complaintCategoryDropdown = document.getElementById("complaintCategory");
+    var divisionFormGroup = document.getElementById("divisionFormGroup");
+
+    // Check if the selected value in the complaint category dropdown is "division" (Campus)
+    if (complaintCategoryDropdown.value === "division") {
+        divisionFormGroup.style.display = "block"; // Show the department dropdown
+    } else {
+        divisionFormGroup.style.display = "none"; // Hide the department dropdown
+    }
+}   
+
 function validateForm() {
     // Name should not have any special characters other than . and ,
     var name = document.getElementById("name").value;

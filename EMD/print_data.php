@@ -31,7 +31,19 @@
         </select>
     </div><br>
     
+    
+
     <div class="form-group">
+        <label for="complaintCategory">Complaint Category:</label>
+        <select id="complaintCategory" name="complaintCategory" onchange="toggleDepartmentDropdown()">
+            <option value="BothQuarterDivision">Both Campus/Colony</option> <!-- Option for both quarter and division -->
+            <option value="division">Campus</option>
+            <option value="quarter">Colony</option>
+            <!-- Add more options for complaint categories -->
+        </select>
+    </div><br>
+
+    <div class="form-group" id="divisionFormGroup" style="display: none;">
         <label for="division">Department:</label>
         <select id="division" name="division" class="styled-select" >
             <option value="AllDepartments">All Departments</option> <!-- Option for all departments -->
@@ -44,16 +56,6 @@
             ?>
         </select>
     </div><br>
-
-    <div class="form-group">
-        <label for="complaintCategory">Complaint Category:</label>
-        <select id="complaintCategory" name="complaintCategory">
-            <option value="BothQuarterDivision">Both Quarter/Division</option> <!-- Option for both quarter and division -->
-            <option value="division">division</option>
-            <option value="quarter">quarter</option>
-            <!-- Add more options for complaint categories -->
-        </select>
-    </div>
     
     <input type="submit" value="Print">
 </form>

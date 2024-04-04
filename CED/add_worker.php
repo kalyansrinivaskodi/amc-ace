@@ -31,6 +31,16 @@ if (!isset($_SESSION["cedusername"])) {
         <label for="worker_name">Worker Name:</label><br>
         <input type="text" id="worker_name" name="worker_name" required><br><br>
 
+        <label for="worker_designation">Worker Designation:</label><br>
+        <input type="text" id="worker_designation" name="worker_designation" required><br><br>
+
+        <label for="worker_category">Worker Category:</label><br>
+        <select id="worker_category" name="worker_category" required>
+            <option value="Fixing">Fixing</option>
+            <option value="Plumbing">Plumbing</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+
         <input type="submit" value="Add Worker">
     </form>
 </div>

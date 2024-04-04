@@ -70,12 +70,13 @@ $completedIssues = getIssuesByStatus($username, 'Completed');
     
     <button class="button" onclick="location.href='get_completed_issues.php?status=Completed';">Completed Issues</button>
     
-    <?php if($userPriority == 5) { ?>
+    <?php if($userPriority >= 2) { ?>
         <button class="button" onclick="location.href='newuserform.php';">Add User</button>
     <?php } ?>
     
+    <?php if($userPriority >= 2) { ?>
     <button class="button" onclick="location.href='add_worker.php';">Add Worker</button>
-    
+    <?php } ?>
     <!-- Button for printing data -->
     <button class="button" onclick="location.href='print_data.php';">Reports</button>
 
@@ -86,5 +87,6 @@ $completedIssues = getIssuesByStatus($username, 'Completed');
 
 </body>
 </html>
+
 
 <?php include 'footer.php' ?>

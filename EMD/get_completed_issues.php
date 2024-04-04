@@ -30,7 +30,7 @@ if (isset($_GET['status'])) {
         }
     
         // Prepare SQL statement to fetch issues
-        $sql = "SELECT * FROM usercomplaintsemd WHERE status=?";
+        $sql = "SELECT * FROM usercomplaintsemd WHERE status=? ORDER BY id DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $status);
         $stmt->execute();
@@ -79,7 +79,7 @@ if (isset($_GET['status'])) {
             <tr>
                 <th>Sl. No.</th> <!-- Added sl. no. column -->
                 <th>Complaint id</th>
-                <th>Complaint Name</th>
+                <th>Complainant Name</th>
                 <th>Department</th>
                 <th>Internal No</th>
                 <th>Email ID</th>

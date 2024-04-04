@@ -13,18 +13,19 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+
 // Prepare and bind SQL statement
-$stmt = $conn->prepare("INSERT INTO usercomplaintsced (name, designation, department, dorq, department_or_qtr_no, phone, internalno, email, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssss", $name, $designation,$department, $divisionOrQuarter,  $division, $contact, $internal, $email, $nature);
+$stmt = $conn->prepare("INSERT INTO usercomplaintsced (name, designation, department, dorq, department_or_qtr_no,quartertype, phone, internalno, email, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssssss", $name, $designation,$department, $divisionOrQuarter,  $division, $type, $contact, $internal, $email, $nature);
 
 // Set parameters and execute
 $name = $_POST['name'];
 $designation = $_POST['designation'];
 // $division = $_POST['division'];
 $department=$_POST['department'];
-
 $divisionOrQuarter = $_POST['division_or_quarter'];
 
+$type = ($divisionOrQuarter === 'quarter') ? $_POST['type'] : 'campus';
 if ($divisionOrQuarter === 'division') {
     $division = $_POST['division'];
 } elseif ($divisionOrQuarter === 'quarter') {

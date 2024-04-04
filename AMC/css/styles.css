@@ -36,7 +36,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #ffc3c3;    
+    background-color: yellow;
     color:black;
 }
 
@@ -58,7 +58,7 @@ li:hover .submenu {
 }
 
 .submenu a:hover {
-    background-color: #ffc3c3; 
+    background-color: yellow;    
     color:black;
 }
 
@@ -69,6 +69,7 @@ li:hover .submenu {
     width: 100%;
     z-index: 1000; /* Ensure it's above other content */
     background-color: #007BFF;
+    
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow effect */
     transition: top 0.3s; /* Add smooth transition */
@@ -90,7 +91,6 @@ li:hover .submenu {
 }
 
 .fixed-navbar a:hover {
-    background-color:#ffc3c3; /* Adjust hover background color */
+    background-color: yellow; /* Adjust hover background color */
     color:black;
-    font-style:oblique;
 }

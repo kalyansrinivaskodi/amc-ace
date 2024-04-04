@@ -1,3 +1,4 @@
+<?php include 'header.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
 </head>
 <body>
 
-  <header class="headers fixed-top  clearfix">
+  <!-- <header class="headers fixed-top  clearfix">
     <div class="header-page row center-page">
       <div class="logo col-md-2">
         <a class="navbar-brand" href="#">AMC</a>
@@ -22,7 +23,7 @@
         <a class="link1 " href="login.php"> Login</a>
           
     </div>
-  </header>
+  </header> -->
     <div class="banner-wrap  clearfix">
       <div class="banner-page">
         <!--<img src="images/computer-image1.jpeg">
@@ -108,7 +109,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "2502";
 $db="amcdb";
 // Create connection
 $con = mysqli_connect($servername, $username, $password,$db);
@@ -116,7 +117,6 @@ $con = mysqli_connect($servername, $username, $password,$db);
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
-	mysql_select_db('amcdb');
 	$sql="SELECT Fullname,mobile FROM userdatabase WHERE priority = 1";
 	$records=mysqli_query($con, $sql) or die('error getting data');
 ?>

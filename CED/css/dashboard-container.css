@@ -23,5 +23,6 @@
 
 /* Hover effect for buttons */
 .button:hover {
-    background-color: #0056b3;
+    background-color: #ffc3c3;
+    color: black;
 }

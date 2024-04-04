@@ -35,7 +35,7 @@ if (isset($_GET['status'])) {
         }
     
         // Prepare SQL statement to fetch issues
-        $sql = "SELECT * FROM usercomplaintsemd where status='".$status."'";
+        $sql = "SELECT * FROM usercomplaintsemd where status='".$status."' ORDER BY id DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -98,7 +98,6 @@ $workers = getWorkers();
 <div class="issues-container">
     <center>
         <h2><?php echo ucfirst($status); ?> Issues<button class="button" onclick="window.print();">Print Data</button>
-        <p><strong>Createdat:</strong><span id="tryingifmodalscript"></span> </p>
         </h2>
         <table>
             <thead>
@@ -107,7 +106,7 @@ $workers = getWorkers();
                     <th>Complaint id</th>                
                     <th>Complaint Name</th>
                     <th>Designation</th>
-                    <th>Department</th>                    
+                    <th>Complainant Category</th>   
                     <th>(Place of complaint)division or quarter no</th>
                     <th>Internal No</th>
                     <th>Phone No</th>
@@ -115,9 +114,7 @@ $workers = getWorkers();
                     <th>Description</th>                
                     <th>Created At</th> <!-- New column for Created At -->
                     <th>Change Status</th>
-                    <?php if ($userPriority >= 2): ?>
-                        <th>Assign Worker</th> <!-- Added column for Assign Worker button -->
-                    <?php endif; ?>
+                    <th>Assign Worker</th> <!-- Added column for Assign Worker button -->                    
                     <th>Assigned To</th> <!-- Added column for Assigned To -->
                     <th>Print</th> <!-- Added column for Print button -->
                 </tr>
@@ -131,7 +128,7 @@ $workers = getWorkers();
                         <td><?php echo $issue['id']; ?></td>
                         <td><?php echo $issue['name']; ?></td>                    
                         <td><?php echo $issue['designation']; ?></td>
-                        <td><?php echo $issue['department']; ?></td>  
+                        <td><?php echo $issue['dorq']; ?></td>  
                         <td><?php echo $issue['department_or_qtr_no']; ?></td>  
                         <td><?php echo $issue['internalno']; ?></td>                      
                         <td><?php echo $issue['phone']; ?></td>
@@ -146,13 +143,11 @@ $workers = getWorkers();
                             <?php endif; ?>
                         </td>
 
-                        <?php if ($userPriority >= 2): ?>
-                            <td>
-                                <?php if ($status === 'Pending'): ?>
-                                    <button onclick="assignWorker(<?php echo $issue['id']; ?>)">Assign to Worker</button>
-                                <?php endif; ?>
-                            </td>
-                        <?php endif; ?>
+                        <td>
+                            <?php if ($status === 'Pending'): ?>
+                                <button onclick="assignWorker(<?php echo $issue['id']; ?>)">Assign to Worker</button>
+                            <?php endif; ?>
+                        </td>
                         <td><?php echo $issue['assigned_to']; ?></td> <!-- Display assigned_to data -->
                         <td>
                             <button onclick="printIssueDetails(<?php echo $issue['id']; ?>)">Print</button>

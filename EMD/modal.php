@@ -36,7 +36,7 @@ $result = $conn->query($sql);
 <div id="statusModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2><u>emd Action Report</u></h2>
+        <h2><u>EMD Action Report</u></h2>
         
         <p><strong>Createdat:</strong><span id="issueCreatedAt"></span> </p>
         <p><strong>Complaint ID:</strong> <span id="issueIdPlaceholder"></span></p>
